@@ -1,0 +1,21 @@
+<div class="container color-dark transform1">
+    <div class="col" >
+        <p> Un element de liste</p>
+    </div>
+    <div class="col">
+        <p> Ma liste d'éléments ({{nbItems}})</p>
+    </div>
+</div>
+<div class="container color-light transform2" [@animAjoutItem]="activiteService.objectifs.length">
+    <div class="col">
+        <p class="sm"> Un nouvel élément de liste</p>
+        <input type="text" class="txt" [(ngModel)]="objectifText">
+        <p>{{objectifText}}</p>
+        <input type="submit" class="btn" [ngClass]="{'red': objectifText == '', 'green' : objectifText !=''}" [value]="btnText"  (click)="ajoutItem()">
+    </div>
+    <div class="col">
+        <div *ngFor="let elem of activiteService.objectifs; let i = index">
+            <p (click)="goToconsultAct(i)" class="life-container">{{elem}}</p>
+        </div>
+    </div>
+</div>

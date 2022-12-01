@@ -1,0 +1,20 @@
+<div *ngIf="id1 == undefined">
+    <h1>Liste des activité</h1>
+    <ol *ngFor="let objectif of activiteService.objectifs">
+        <li>Nom de l'activité : <strong> {{objectif}} </strong></li>
+    </ol>
+</div>
+
+<div *ngIf="id1 != undefined">
+    <h1>Détail de l'activité</h1>
+    <ol>
+        <li>
+            Nom de l'activité : <strong> {{activiteService.objectifs[id1]}} </strong>
+            <input *ngIf="isEdit" type="text" [(ngModel)]="form">
+        </li>
+        <input type="button" class="btn red" (click)="removeElem(id1)" value="Supprimer">
+        <input type="button" class="btn blue" (click)="setEdit()" *ngIf="!isEdit" value="Modifier">
+        <input type="button" class="btn blue" (click)="save(id1)" *ngIf="isEdit" value="Sauvegarder">
+        <input type="button" class="btn green" (click)="goToHome()" *ngIf="!isEdit" value="Retour">
+    </ol>
+</div>
