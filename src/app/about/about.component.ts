@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ActiviteService } from '../services/activite.service';
 
 @Component({
   selector: 'app-about',
@@ -10,9 +11,7 @@ export class AboutComponent implements OnInit {
 
   nbElements : number = 0
 
-  constructor(private route: ActivatedRoute) {
-    //this.nbElements = route.snapshot.queryParams['n']
-    this.nbElements = route.snapshot.params['n']
+  constructor(public activiteService : ActiviteService) {
    }
 
   ngOnInit(): void {

@@ -1,3 +1,6 @@
-<p>
-    about works
-</p>
+<h1>Liste des activité</h1>
+<ol>
+    <li *ngFor="let objectif of activiteService.objectifs">
+        Nom de l'activité : <strong> {{objectif}} </strong>
+    </li>
+</ol>
